@@ -7,7 +7,6 @@ function App() {
     <>
       <h1>Thrift Happens</h1>
       <h2>Give old clothes another chance!</h2>
-
       <ItemsContainer data={products} />
     </>
   );
