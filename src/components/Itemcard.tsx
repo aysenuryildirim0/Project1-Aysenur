@@ -3,9 +3,10 @@ import { useState } from "react";
 
 interface ItemCardProp {
   product: ClothingProduct;
+  addtoCart: (selectedClothing: ClothingProduct) => void;
 }
 
-export default function ItemCard({ product }: ItemCardProp) {
+export default function ItemCard({ product, addtoCart }: ItemCardProp) {
   const [amountAvaliable, setAmount] = useState(0);
   return (
     <div>
@@ -35,6 +36,19 @@ export default function ItemCard({ product }: ItemCardProp) {
         disabled={amountAvaliable === product.quantity}
       >
         +
+      </button>
+      {/* Add to card button */}
+      <button
+        onClick={() => {
+          addtoCart({
+            ...product,
+            itemQuantity: amountAvaliable,
+          });
+          setAmount(0);
+        }}
+        disabled={amountAvaliable == 0}
+      >
+        Add to cart
       </button>
     </div>
   );
