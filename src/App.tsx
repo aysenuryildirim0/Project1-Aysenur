@@ -46,12 +46,35 @@ function App() {
     });
   };
 
+  const removeHandle = (id: number) => {
+    const removedItem = checkoutCard.find((cartItem) => cartItem.id === id);
+
+    if (!removedItem) {
+      return;
+    }
+
+    setCheckoutCart((checkoutCart) =>
+      checkoutCart.filter((cartItem) => cartItem.id !== id),
+    );
+
+    setAvaliableClothes((avaliableClothes) =>
+      avaliableClothes.map((product) =>
+        product.id === id
+          ? {
+              ...product,
+              quantity: product.quantity + removedItem.itemQuantity,
+            }
+          : product,
+      ),
+    );
+  };
+
   return (
     <>
       <h1>Thrift Happens</h1>
       <h2>Give old clothes another chance!</h2>
       <ItemsContainer data={avaliableClothes} addtoCart={addtoCart} />
-      <CheckoutContainer data={checkoutCard} />
+      <CheckoutContainer data={checkoutCard} removeHandle={removeHandle} />
     </>
   );
 }

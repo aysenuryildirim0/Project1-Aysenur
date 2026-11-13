@@ -1,21 +1,25 @@
 import type { ClothingProduct } from "../data/data";
+import CheckoutCard from "./CheckoutCard";
 
 interface CheckoutContainerProp {
   data: ClothingProduct[];
+  removeHandle: (id: number) => void;
 }
 
-export default function CheckoutContainer({ data }: CheckoutContainerProp) {
+export default function CheckoutContainer({
+  data,
+  removeHandle,
+}: CheckoutContainerProp) {
   return (
     <div>
-      <h1>Checkout</h1>
-      {data.length === 0 && <p>Card empty</p>}
+      <h1>Checkout: </h1>
+      {data.length === 0 && <p>Cart empty</p>}
       {data.map((product) => (
-        <div key={product.id}>
-          <h2>{product.name}</h2>
-          <p>Price: {product.price.toFixed(2)}</p>
-          <p>Quantity: {product.itemQuantity}</p>
-          <p>Total: {(product.price * product.itemQuantity).toFixed(2)}</p>
-        </div>
+        <CheckoutCard
+          key={product.id}
+          product={product}
+          removeHandle={removeHandle}
+        />
       ))}
     </div>
   );
