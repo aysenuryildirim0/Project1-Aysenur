@@ -8,11 +8,16 @@ export default function CheckoutSet() {
   const [checkoutCard, setCheckoutCart] = useState<ClothingProduct[]>([]);
   const [avaliableClothes, setAvaliableClothes] =
     useState<ClothingProduct[]>(products);
+  {
+    /*adds product to cart and products stock gets updated*/
+  }
   const addtoCart = (selectedClothing: ClothingProduct) => {
+    //prevents adding 0 quantity
     if (selectedClothing.itemQuantity <= 0) {
       return;
     }
 
+    {/*updates the stock*/}
     setAvaliableClothes((avaliableClothes) =>
       avaliableClothes.map((product) =>
         product.id === selectedClothing.id
@@ -24,11 +29,13 @@ export default function CheckoutSet() {
       ),
     );
 
+    {/*checks if the product already is in cart*/}
     setCheckoutCart((checkoutCart) => {
       const existsInCart = checkoutCart.find(
         (cartItem) => cartItem.id === selectedClothing.id,
       );
 
+      {/*if the product is added to the cart before increases quantity*/}
       if (existsInCart) {
         return checkoutCart.map((cartItem) =>
           cartItem.id === selectedClothing.id
@@ -45,6 +52,7 @@ export default function CheckoutSet() {
     });
   };
 
+  {/*removes from checkout*/}
   const removeHandle = (id: number) => {
     const removedItem = checkoutCard.find((cartItem) => cartItem.id === id);
 
@@ -52,6 +60,7 @@ export default function CheckoutSet() {
       return;
     }
 
+    {/*after products are removed from the cart, quantity of product goes back*/}
     setCheckoutCart((checkoutCart) =>
       checkoutCart.filter((cartItem) => cartItem.id !== id),
     );
@@ -68,6 +77,7 @@ export default function CheckoutSet() {
     );
   };
 
+  {/*displays available products*/}
   return (
     <div>
       <ItemsContainer data={avaliableClothes} addtoCart={addtoCart} />

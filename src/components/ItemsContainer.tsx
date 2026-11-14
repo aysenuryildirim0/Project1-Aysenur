@@ -8,7 +8,8 @@ interface ItemsContainerPrp {
 
 export default function ItemsContainer({ data, addtoCart }: ItemsContainerPrp) {
   return (
-    <div>
+    <div className="display">
+      {/* loops through array and makes a itemcard for each */}
       {data.map((product) => (
         <ItemCard key={product.id} product={product} addtoCart={addtoCart} />
       ))}

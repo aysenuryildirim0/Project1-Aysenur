@@ -18,25 +18,31 @@ export default function ItemCard({ product, addtoCart }: ItemCardProp) {
       <p>Description: {product.description}</p>
       <p>Size of the clothing: {product.size}</p>
       <p>Price: ${product.price.toFixed(2)}</p>
+
+      {/* Displays stock of the product, if there is 0 stock 'Out of Stock'*/}
       {product.quantity === 0 ? (
         <p>Out of Stock!</p>
       ) : (
         <p>Remaning stock: {product.quantity}</p>
       )}
-      <p>Selected Quantity: {amountAvaliable}</p>
 
+      {/*quantity of the selected product goes down but can't go down below 0*/}
+      <p>Selected Quantity: {amountAvaliable}</p>
       <button
         onClick={() => setAmount(amountAvaliable - 1)}
         disabled={amountAvaliable === 0}
       >
         -
       </button>
+
+      {/*increases the quantity of the product that user selects but prevents going over the stock avaliable*/}
       <button
         onClick={() => setAmount(amountAvaliable + 1)}
         disabled={amountAvaliable === product.quantity}
       >
         +
       </button>
+
       {/* Add to card button */}
       <button
         onClick={() => {
