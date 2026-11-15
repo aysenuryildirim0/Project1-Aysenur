@@ -23,7 +23,7 @@ export default function ItemCard({ product, addtoCart }: ItemCardProp) {
       {product.quantity === 0 ? (
         <p>Out of Stock!</p>
       ) : (
-        <p>Remaning stock: {product.quantity}</p>
+        <p>Remaining stock: {product.quantity}</p>
       )}
 
       {/*quantity of the selected product goes down but can't go down below 0*/}
@@ -43,7 +43,7 @@ export default function ItemCard({ product, addtoCart }: ItemCardProp) {
         +
       </button>
 
-      {/* Add to card button */}
+      {/* Add to cart button */}
       <button
         onClick={() => {
           addtoCart({

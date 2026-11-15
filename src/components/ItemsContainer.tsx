@@ -1,12 +1,12 @@
 import ItemCard from "./Itemcard";
 import type { ClothingProduct } from "../data/data";
 
-interface ItemsContainerPrp {
+interface ItemsContainerProps {
   data: ClothingProduct[];
   addtoCart: (selectedCloting: ClothingProduct) => void;
 }
 
-export default function ItemsContainer({ data, addtoCart }: ItemsContainerPrp) {
+export default function ItemsContainer({ data, addtoCart }: ItemsContainerProps) {
   return (
     <div className="display">
       {/* loops through array and makes a itemcard for each */}
