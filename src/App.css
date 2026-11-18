@@ -1,5 +1,12 @@
 .display {
   display: grid;
-  grid-template-columns: auto auto; 
-  gap: 15px;
+  gap: 1px;
+}
+
+.navBar {
+  align-items: center;
+}
+
+.navBar img {
+  width: 300px;
 }

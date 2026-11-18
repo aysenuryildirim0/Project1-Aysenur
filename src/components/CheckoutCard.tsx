@@ -6,7 +6,7 @@ interface CheckoutCardProp {
 }
 
 {/*checkout layout*/ }
-export default function checkoutCard({
+export default function CheckoutCard({
   product,
   removeHandle,
 }: CheckoutCardProp) {

@@ -3,8 +3,9 @@ import { products } from "../data/data";
 import type { ClothingProduct } from "../data/data";
 import ItemsContainer from "./ItemsContainer";
 import CheckoutContainer from "./CheckoutContainer";
+import NavBar from "./NavBar";
 
-export default function CheckoutSet() {
+export default function ThriftHappens() {
   const [checkoutCard, setCheckoutCart] = useState<ClothingProduct[]>([]);
   const [avaliableClothes, setAvaliableClothes] =
     useState<ClothingProduct[]>(products);
@@ -80,6 +81,7 @@ export default function CheckoutSet() {
   //displays available products*
   return (
     <div>
+      <NavBar />
       <ItemsContainer data={avaliableClothes} addtoCart={addtoCart} />
       <CheckoutContainer data={checkoutCard} removeHandle={removeHandle} />
     </div>

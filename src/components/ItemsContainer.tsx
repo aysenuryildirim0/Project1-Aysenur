@@ -9,6 +9,7 @@ interface ItemsContainerProps {
 export default function ItemsContainer({ data, addtoCart }: ItemsContainerProps) {
   return (
     <div className="display">
+      <div id="shop" className="display"></div>
       {/* loops through array and makes a itemcard for each */}
       {data.map((product) => (
         <ItemCard key={product.id} product={product} addtoCart={addtoCart} />

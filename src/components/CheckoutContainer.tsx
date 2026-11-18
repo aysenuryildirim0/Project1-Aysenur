@@ -1,4 +1,4 @@
-{/*Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce*/}
+{/*Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce*/ }
 import type { ClothingProduct } from "../data/data";
 import CheckoutCard from "./CheckoutCard";
 
@@ -17,7 +17,7 @@ export default function CheckoutContainer({
   );
 
   return (
-    <div>
+    <div id="checkout">
       <h1>Checkout: </h1>
       {/*displays a message when card is empty*/}
       {data.length === 0 && <p>Cart empty</p>}
